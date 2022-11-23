@@ -1,6 +1,6 @@
 # spice_dating_app
 
-A new Flutter project.
+A dating app UI implementation fro Dribble
 
 ## Getting Started
 
