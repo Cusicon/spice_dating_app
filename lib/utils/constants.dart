@@ -17,12 +17,14 @@ String packageName = '';
 String appVersion = '';
 String buildNumber = '';
 
-Future<void> getAppVersion() async {
+Future<PackageInfo> getAppVersion() async {
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   appName = packageInfo.appName;
   packageName = packageInfo.packageName;
   appVersion = packageInfo.version;
   buildNumber = packageInfo.buildNumber;
+
+  return packageInfo;
 }
 
 

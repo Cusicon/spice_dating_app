@@ -17,7 +17,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      getAppVersion();
       Future.delayed(const Duration(seconds: 10), () {
         Navigator.pushAndRemoveUntil(
           context,

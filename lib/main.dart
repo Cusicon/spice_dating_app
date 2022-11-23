@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'pages/profile_page.dart';
 import 'pages/splash_screen.dart';
@@ -7,12 +8,9 @@ import 'utils/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  // FlutterNativeSplash.remove();
 
+  await getAppVersion();
   runApp(const MyApp());
-  getAppVersion();
 }
 
 class MyApp extends StatelessWidget {
