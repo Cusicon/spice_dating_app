@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/base_bottom_bar.dart';
 
-import '../utils/constants.dart';
+import '../widgets/base_bottom_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,9 +9,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text(appTitle)),
-      bottomNavigationBar: BaseBottomBar(),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [],
+        ),
+      ),
+      bottomNavigationBar: const BaseBottomBar(),
     );
   }
 }
