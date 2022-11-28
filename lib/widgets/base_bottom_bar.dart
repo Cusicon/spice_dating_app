@@ -11,32 +11,24 @@ class BaseBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const List<Map<String, dynamic>> menus = [
+      {'icon': LineIcons.thLarge, "text": 'Cards'},
+      {'icon': LineIcons.commentDots, "text": 'Inbox'},
+      {'icon': LineIcons.heart, "text": 'Likes'},
+      {'icon': LineIcons.user, "text": 'Profile'},
+    ];
+
     return Container(
       padding: const EdgeInsets.all(pagePaddingSize),
-      child: const GNav(
-        haptic: true, // haptic feedback
-        tabs: [
-          GButton(
-            icon: LineIcons.thLarge,
-            text: 'Cards',
+      child: GNav(
+        haptic: true,
+        tabs: menus.map((menu) {
+          return GButton(
+            icon: menu['icon'],
+            text: menu['text'],
             gap: minPaddingSize,
-          ),
-          GButton(
-            icon: LineIcons.commentDots,
-            text: 'Inbox',
-            gap: minPaddingSize,
-          ),
-          GButton(
-            icon: LineIcons.heart,
-            text: 'Likes',
-            gap: minPaddingSize,
-          ),
-          GButton(
-            icon: LineIcons.user,
-            text: 'Profile',
-            gap: minPaddingSize,
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }
