@@ -27,10 +27,11 @@ MaterialColor createMaterialColor(Color color) {
 
 ThemeData appTheme() {
   return ThemeData(
+    brightness: Brightness.light,
     fontFamily: GoogleFonts.questrial().fontFamily,
     primarySwatch: createMaterialColor(const Color(appPrimaryColor)),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.transparent,
       elevation: 0.0,
       iconTheme: IconThemeData(color: Colors.white),
     ),
@@ -57,7 +58,30 @@ ThemeData appTheme() {
 
 ThemeData appDarkTheme() {
   return ThemeData(
-    fontFamily: GoogleFonts.roboto().fontFamily,
+    brightness: Brightness.dark,
+    fontFamily: GoogleFonts.questrial().fontFamily,
+    scaffoldBackgroundColor: Colors.transparent,
     primarySwatch: createMaterialColor(const Color(appPrimaryColor)),
+    textTheme: const TextTheme(
+      headlineLarge: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.w800,
+      ),
+      headlineSmall: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      bodyLarge: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        height: 1.5,
+      ),
+      bodyMedium: TextStyle(
+        height: 1.5,
+      ),
+    ).apply(
+      bodyColor: Colors.grey.shade400,
+      displayColor: Colors.red,
+    ),
   );
 }

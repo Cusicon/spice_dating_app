@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import 'pages/profile_page.dart';
 import 'pages/splash_screen.dart';

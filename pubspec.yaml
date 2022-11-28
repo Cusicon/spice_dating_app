@@ -15,6 +15,7 @@ dependencies:
   flutter_native_splash: ^2.2.15
   google_fonts: ^3.0.1
   google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
   package_info_plus: ^3.0.2
 
 dev_dependencies:
