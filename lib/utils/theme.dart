@@ -65,26 +65,5 @@ ThemeData appDarkTheme() {
     fontFamily: GoogleFonts.questrial().fontFamily,
     scaffoldBackgroundColor: Colors.transparent,
     primarySwatch: createMaterialColor(const Color(appPrimaryColor)),
-    textTheme: const TextTheme(
-      headlineLarge: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w800,
-      ),
-      headlineSmall: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      bodyLarge: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        height: 1.5,
-      ),
-      bodyMedium: TextStyle(
-        height: 1.5,
-      ),
-    ).apply(
-      bodyColor: Colors.grey.shade400,
-      displayColor: Colors.red,
-    ),
   );
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:spice_dating_app/utils/colors.dart';
 
 import '../utils/constants.dart';
 
@@ -13,14 +12,14 @@ class BaseBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const List<Map<String, dynamic>> menus = [
-      {'icon': LineIcons.thLarge, "text": 'Cards'},
-      {'icon': LineIcons.commentDots, "text": 'Inbox'},
-      {'icon': LineIcons.heart, "text": 'Likes'},
-      {'icon': LineIcons.user, "text": 'Profile'},
+      {'icon': LineIcons.columns, 'text': 'Cards'},
+      {'icon': LineIcons.commentDots, 'text': 'Inbox'},
+      {'icon': LineIcons.heart, 'text': 'Likes'},
+      {'icon': LineIcons.user, 'text': 'Profile'},
     ];
 
     return Container(
-      padding: const EdgeInsets.all(pagePaddingSize),
+      margin: const EdgeInsets.symmetric(vertical: minSizedBox),
       child: GNav(
         haptic: true,
         tabs: menus.map((menu) {
@@ -28,9 +27,10 @@ class BaseBottomBar extends StatelessWidget {
             icon: menu['icon'],
             text: menu['text'],
             gap: minPaddingSize,
-            iconActiveColor: const Color(appSecondaryColor),
-            textColor: const Color(appSecondaryColor),
+            iconActiveColor: Theme.of(context).primaryColor,
+            textColor: Theme.of(context).primaryColor,
             iconColor: Colors.grey.withOpacity(0.8),
+            iconSize: 28.0,
           );
         }).toList(),
       ),

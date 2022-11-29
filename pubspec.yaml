@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   activity_ring: ^0.3.0
+  cached_network_image: ^3.2.3
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter

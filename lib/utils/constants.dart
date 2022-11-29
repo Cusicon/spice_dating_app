@@ -5,8 +5,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 const double pagePaddingSize = 24.0;
 const double minPaddingSize = 8.0;
 const double maxSizedBox = 16.0;
-const double borderRadius = 24.0;
 const double minSizedBox = 8.0;
+const double borderWidth = 2.0;
 
 const String appTitle = 'Spice';
 const String appSubTitle = 'Social Media Network';

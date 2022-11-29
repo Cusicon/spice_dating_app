@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Future.delayed(const Duration(seconds: 10), () {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => const HomePage()),
           (_) => false,
         );
       });
@@ -34,33 +34,36 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Align(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.6,
-            height: MediaQuery.of(context).size.height * 0.6,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    const SizedBox(
-                      height: 150,
-                      child: Image(
-                        image: AssetImage(appLaunchScreenLogo),
-                        alignment: Alignment.center,
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: MediaQuery.of(context).size.height * 0.75,
+            child: Padding(
+              padding: const EdgeInsets.all(pagePaddingSize),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      const SizedBox(
+                        height: 125,
+                        child: Image(
+                          image: AssetImage(appLaunchScreenLogo),
+                          alignment: Alignment.center,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: maxSizedBox),
-                    Text(
-                      appSubTitle,
-                      style: Theme.of(context).textTheme.caption,
-                    ),
-                  ],
-                ),
-                const LoadingBar(),
-                Text(
-                  'Ver $appVersion',
-                  style: Theme.of(context).textTheme.caption,
-                ),
-              ],
+                      const SizedBox(height: maxSizedBox),
+                      Text(
+                        appSubTitle,
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    ],
+                  ),
+                  const LoadingBar(),
+                  Text(
+                    'Ver $appVersion',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

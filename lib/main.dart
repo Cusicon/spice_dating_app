@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'pages/profile_page.dart';
 import 'pages/splash_screen.dart';
@@ -6,7 +7,8 @@ import 'utils/constants.dart';
 import 'utils/theme.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await getAppVersion();
   runApp(const MyApp());
@@ -15,9 +17,10 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
+
     return MaterialApp(
       title: appTitle,
       debugShowCheckedModeBanner: false,
