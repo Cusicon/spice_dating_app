@@ -9,9 +9,14 @@ const double minSizedBox = 8.0;
 const double borderWidth = 2.0;
 
 const String appTitle = 'Spice';
-const String appSubTitle = 'Social Media Network';
+const String appSubTitle = '...Kings to Queens only';
 const String appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
+const String appIcon = 'assets/icons/icon.png';
 const String appLogo = 'assets/icons/text-logo.png';
+const String loveIcon = 'assets/lottieicons/love-icon.json';
+const String loveHearts = 'assets/lottieicons/love-hearts.json';
+const String loveWithParticle = 'assets/lottieicons/love-with-particle.json';
+const String loveFloating = 'assets/lottieicons/love-floating.json';
 
 String appName = '';
 String packageName = '';

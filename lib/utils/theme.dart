@@ -36,22 +36,7 @@ ThemeData appTheme() {
       iconTheme: IconThemeData(color: Colors.white),
     ),
     textTheme: const TextTheme(
-      headlineLarge: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w800,
-      ),
-      headlineSmall: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      bodyLarge: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        height: 1.5,
-      ),
-      bodyMedium: TextStyle(
-        height: 1.5,
-      ),
+      headlineSmall: TextStyle(fontWeight: FontWeight.bold),
     ).apply(
       bodyColor: const Color(appSecondaryColor),
       displayColor: const Color(appSecondaryColor),

@@ -2,6 +2,7 @@ import 'package:activity_ring/activity_ring.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:lottie/lottie.dart';
 
 import '../models/user_model.dart';
 import '../utils/colors.dart';
@@ -41,9 +42,16 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const HomeAppBar(),
-              QuestionWidget(users: users),
-              GalleryWidget(users: users, selectedUser: selectedUser),
-              galleryControls(context),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    QuestionWidget(users: users),
+                    GalleryWidget(users: users, selectedUser: selectedUser),
+                    galleryControls(context),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -121,13 +129,13 @@ class QuestionWidget extends StatelessWidget {
             children: [
               const TextSpan(text: 'Would you date \n'),
               TextSpan(
-                text: users[0].name.split(' ')[0],
-                style: Theme.of(context).textTheme.headline5,
+                text: users[0].name.split(' ').first,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               const TextSpan(text: ' or '),
               TextSpan(
-                text: users[1].name.split(' ')[0],
-                style: Theme.of(context).textTheme.headline5,
+                text: users[1].name.split(' ').first,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],
           ),
@@ -169,23 +177,44 @@ class GalleryWidget extends StatelessWidget {
                   )
                 : null,
           ),
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            imageUrl: user.photos.first,
-            placeholder: (context, url) => Container(
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                color: appLoadingBackgroundColor,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: user.photos.first,
+                placeholder: (context, url) => Container(
+                  height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    color: appLoadingBackgroundColor,
+                  ),
+                  child: const SizedBox(
+                    height: 60.0,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        strokeWidth: borderWidth,
+                      ),
+                    ),
+                  ),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    color: appLoadingBackgroundColor,
+                  ),
+                  child: SizedBox(
+                    height: 60.0,
+                    child: Center(
+                      child: Icon(
+                        LineIcons.times,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              child: const SizedBox(
-                height: 60.0,
-                child: Center(
-                    child: CircularProgressIndicator(
-                  strokeWidth: borderWidth,
-                )),
-              ),
-            ),
-            errorWidget: (context, url, error) => const Icon(LineIcons.times),
+              if (index == selectedUser) Center(child: Lottie.asset(loveIcon)),
+            ],
           ),
         );
       },
