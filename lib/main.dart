@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spice_dating_app/pages/home_page.dart';
+import 'pages/home_page.dart';
 
 import 'pages/profile_page.dart';
 import 'utils/constants.dart';
