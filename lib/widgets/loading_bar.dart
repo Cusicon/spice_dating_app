@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 
 import '../utils/constants.dart';
 
@@ -44,9 +45,9 @@ class _LoadingBarState extends State<LoadingBar> with TickerProviderStateMixin {
         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         child: LinearProgressIndicator(
           value: controller.value,
-          backgroundColor: Colors.grey.withOpacity(0.3),
+          backgroundColor: appLoadingBackgroundColor,
           semanticsLabel: 'Linear progress indicator',
-          color: Theme.of(context).primaryColor,
+          color: const Color(appPrimaryColor),
         ),
       ),
     );

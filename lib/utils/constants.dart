@@ -11,6 +11,7 @@ const double minSizedBox = 8.0;
 const String appTitle = 'Spice';
 const String appSubTitle = 'Social Media Network';
 const String appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
+const String appLogo = 'assets/icons/text-logo.png';
 
 String appName = '';
 String packageName = '';

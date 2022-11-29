@@ -29,7 +29,7 @@ ThemeData appTheme() {
   return ThemeData(
     brightness: Brightness.light,
     fontFamily: GoogleFonts.questrial().fontFamily,
-    primarySwatch: createMaterialColor(const Color(appPrimaryColor)),
+    primarySwatch: createMaterialColor(const Color(appSecondaryColor)),
     appBarTheme: const AppBarTheme(
       // backgroundColor: Colors.transparent,
       elevation: 0.0,
@@ -52,6 +52,9 @@ ThemeData appTheme() {
       bodyMedium: TextStyle(
         height: 1.5,
       ),
+    ).apply(
+      bodyColor: const Color(appSecondaryColor),
+      displayColor: const Color(appSecondaryColor),
     ),
   );
 }

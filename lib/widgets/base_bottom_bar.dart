@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:spice_dating_app/utils/colors.dart';
 
 import '../utils/constants.dart';
 
@@ -27,6 +28,9 @@ class BaseBottomBar extends StatelessWidget {
             icon: menu['icon'],
             text: menu['text'],
             gap: minPaddingSize,
+            iconActiveColor: const Color(appSecondaryColor),
+            textColor: const Color(appSecondaryColor),
+            iconColor: Colors.grey.withOpacity(0.8),
           );
         }).toList(),
       ),

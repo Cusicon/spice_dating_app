@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Future.delayed(const Duration(seconds: 10), () {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => HomePage()),
           (_) => false,
         );
       });
@@ -40,20 +40,26 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 150,
                       child: Image(
                         image: AssetImage(appLaunchScreenLogo),
                         alignment: Alignment.center,
                       ),
                     ),
-                    SizedBox(height: maxSizedBox),
-                    Text(appSubTitle),
+                    const SizedBox(height: maxSizedBox),
+                    Text(
+                      appSubTitle,
+                      style: Theme.of(context).textTheme.caption,
+                    ),
                   ],
                 ),
                 const LoadingBar(),
-                Text('Ver $appVersion'),
+                Text(
+                  'Ver $appVersion',
+                  style: Theme.of(context).textTheme.caption,
+                ),
               ],
             ),
           ),
