@@ -31,9 +31,9 @@ ThemeData appTheme() {
     fontFamily: GoogleFonts.questrial().fontFamily,
     primarySwatch: createMaterialColor(const Color(appSecondaryColor)),
     appBarTheme: const AppBarTheme(
-      // backgroundColor: Colors.transparent,
+      backgroundColor: Colors.transparent,
       elevation: 0.0,
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: IconThemeData(color: Color(appSecondaryColor)),
     ),
     textTheme: const TextTheme(
       headlineSmall: TextStyle(fontWeight: FontWeight.bold),

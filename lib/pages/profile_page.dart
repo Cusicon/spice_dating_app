@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spice_dating_app/widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -8,6 +7,11 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const BottomSheetWidget();
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(
+        child: Text("This is a modal sheet"),
+      ),
+    );
   }
 }
