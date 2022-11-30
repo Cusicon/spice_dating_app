@@ -3,11 +3,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
+import 'package:spice_dating_app/pages/profile_page.dart';
 
 import '../models/user_model.dart';
 import '../utils/colors.dart';
 import '../utils/constants.dart';
-import '../widgets/base_bottom_bar.dart';
+import '../widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,14 +19,71 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final List<User> users = User.users;
-  final int selectedUser = 1;
+  late int selectedUser;
+  late int chosenUser;
+  late AnimationController chosenController;
+
+  @override
+  void initState() {
+    selectedUser = users.length;
+    chosenUser = users.length;
+    chosenController = AnimationController(vsync: this);
+    chosenController.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        showModal();
+        chosenController.reset();
+      }
+    });
+    super.initState();
+  }
+
+  void showModal() {
+    showModalBottomSheet(
+      isDismissible: false,
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.0),
+        ),
+      ),
+      builder: (context) {
+        return const ProfilePage();
+      },
+    );
+  }
 
   void shuffleUsers() {
     setState(() {
       users.shuffle();
+      selectedUser = users.length;
+      chosenUser = users.length;
     });
+  }
+
+  void selectUser(index) {
+    setState(() {
+      selectedUser = index;
+      if (chosenUser != index) {
+        chosenUser = users.length;
+      }
+    });
+  }
+
+  void chooseUser(context, index) async {
+    setState(() {
+      selectedUser = index;
+      chosenUser = index;
+    });
+  }
+
+  @override
+  void dispose() {
+    chosenController.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,7 +105,14 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     QuestionWidget(users: users),
-                    GalleryWidget(users: users, selectedUser: selectedUser),
+                    GalleryWidget(
+                      users: users,
+                      selectedUser: selectedUser,
+                      selectUser: selectUser,
+                      chosenUser: chosenUser,
+                      chooseUser: chooseUser,
+                      chosenController: chosenController,
+                    ),
                     galleryControls(context),
                   ],
                 ),
@@ -150,10 +215,18 @@ class GalleryWidget extends StatelessWidget {
     Key? key,
     required this.users,
     required this.selectedUser,
+    required this.selectUser,
+    required this.chosenUser,
+    required this.chooseUser,
+    required this.chosenController,
   }) : super(key: key);
 
   final List<User> users;
   final int selectedUser;
+  final Function selectUser;
+  final int chosenUser;
+  final Function chooseUser;
+  final AnimationController chosenController;
 
   @override
   Widget build(BuildContext context) {
@@ -165,56 +238,71 @@ class GalleryWidget extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisExtent: MediaQuery.of(context).size.height * 0.425,
       ),
-      itemBuilder: (_, index) {
+      itemBuilder: (ctx, index) {
         User user = users[index];
-        return Container(
-          padding: const EdgeInsets.all(minPaddingSize),
-          decoration: BoxDecoration(
-            border: index == selectedUser
-                ? Border.all(
-                    width: borderWidth,
-                    color: const Color(appPrimaryColor),
-                  )
-                : null,
-          ),
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: user.photos.first,
-                placeholder: (context, url) => Container(
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    color: appLoadingBackgroundColor,
+        return InkWell(
+          onTap: () => selectUser(index),
+          onDoubleTap: () => chooseUser(ctx, index),
+          child: Container(
+            padding: const EdgeInsets.all(minPaddingSize),
+            decoration: BoxDecoration(
+              border: index == selectedUser
+                  ? Border.all(
+                      width: borderWidth,
+                      color: const Color(appPrimaryColor),
+                    )
+                  : null,
+            ),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: user.photos.first,
+                  placeholder: (context, url) => Container(
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      color: appLoadingBackgroundColor,
+                    ),
+                    child: const SizedBox(
+                      height: 40.0,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: borderWidth,
+                        ),
+                      ),
+                    ),
                   ),
-                  child: const SizedBox(
-                    height: 60.0,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: borderWidth,
+                  errorWidget: (context, url, error) => Container(
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      color: appLoadingBackgroundColor,
+                    ),
+                    child: SizedBox(
+                      height: 40.0,
+                      child: Center(
+                        child: Icon(
+                          LineIcons.times,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                errorWidget: (context, url, error) => Container(
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    color: appLoadingBackgroundColor,
-                  ),
-                  child: SizedBox(
-                    height: 60.0,
-                    child: Center(
-                      child: Icon(
-                        LineIcons.times,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                if (index == chosenUser)
+                  Center(
+                    child: Lottie.asset(
+                      loveIcon,
+                      repeat: false,
+                      controller: chosenController,
+                      onLoaded: (composition) {
+                        chosenController.duration = composition.duration;
+                        chosenController.forward();
+                      },
                     ),
                   ),
-                ),
-              ),
-              if (index == selectedUser) Center(child: Lottie.asset(loveIcon)),
-            ],
+              ],
+            ),
           ),
         );
       },

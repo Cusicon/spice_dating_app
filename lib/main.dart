@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
 
+import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
 import 'utils/constants.dart';
 import 'utils/theme.dart';

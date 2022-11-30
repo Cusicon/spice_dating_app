@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import '../utils/constants.dart';
-import '../widgets/loading_bar.dart';
+import '../widgets/widgets.dart';
 import 'home_page.dart';
 
 class SplashScreen extends StatefulWidget {
