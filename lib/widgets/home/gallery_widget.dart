@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
+import '../widgets.dart';
 import '../../models/user_model.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
@@ -42,49 +41,17 @@ class GalleryWidget extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(minPaddingSize),
             decoration: BoxDecoration(
-              border: index == selectedUser
-                  ? Border.all(
-                      width: borderWidth,
-                      color: const Color(appPrimaryColor),
-                    )
-                  : null,
+              border: Border.all(
+                width: borderWidth,
+                color: index == selectedUser
+                    ? const Color(appPrimaryColor)
+                    : Colors.transparent,
+              ),
             ),
             child: Stack(
               fit: StackFit.expand,
               children: [
-                CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: user.photos.first,
-                  placeholder: (context, url) => Container(
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      color: appLoadingBackgroundColor,
-                    ),
-                    child: const SizedBox(
-                      height: 40.0,
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          strokeWidth: borderWidth,
-                        ),
-                      ),
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      color: appLoadingBackgroundColor,
-                    ),
-                    child: SizedBox(
-                      height: 40.0,
-                      child: Center(
-                        child: Icon(
-                          LineIcons.times,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                ImageContainer(imageUrl: user.photos.first),
                 if (index == chosenUser)
                   Center(
                     child: Lottie.asset(

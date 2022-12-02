@@ -4,4 +4,5 @@ export 'bottomsheet_widget.dart';
 export 'home/gallery_controls_widget.dart';
 export 'home/gallery_widget.dart';
 export 'home/question_widget.dart';
+export 'image_container_widget.dart';
 export 'loading_bar_widget.dart';
