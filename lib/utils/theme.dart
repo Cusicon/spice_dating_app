@@ -48,7 +48,13 @@ ThemeData appDarkTheme() {
   return ThemeData(
     brightness: Brightness.dark,
     fontFamily: GoogleFonts.questrial().fontFamily,
-    scaffoldBackgroundColor: Colors.transparent,
-    primarySwatch: createMaterialColor(const Color(appPrimaryColor)),
+    scaffoldBackgroundColor: Colors.black,
+    primarySwatch: createMaterialColor(Colors.white),
+    primaryColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      // iconTheme: IconThemeData(color: Color(appSecondaryColor)),
+    ),
   );
 }
