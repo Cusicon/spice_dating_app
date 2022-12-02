@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:spice_dating_app/utils/colors.dart';
 import '../../models/user_model.dart';
 import '../../utils/constants.dart';
 import '../widgets.dart';
@@ -23,9 +25,9 @@ class ProfileHeadPhotos extends StatefulWidget {
 }
 
 class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
-  final bool isAMatch = false;
+  final bool _isAMatch = false;
 
-  final List<Map> choices = [
+  final List<Map> _choices = [
     {
       'icon': LineIcons.donate,
       'title': 'Send a gift',
@@ -38,10 +40,12 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
     }
   ];
 
-  final Map<String, String> skipChoice = {
+  final Map<String, String> _skipChoice = {
     'title': "Nah, I'm good...",
     'value': 'skip'
   };
+
+  final PageController _pageController = PageController();
 
   String popupResponse = '';
 
@@ -52,7 +56,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
       context: context,
       builder: (context) {
         return CupertinoActionSheet(
-          actions: choices.map((choice) {
+          actions: _choices.map((choice) {
             return CupertinoActionSheetAction(
               onPressed: () => Navigator.of(context).pop(choice['value']),
               child: Container(
@@ -69,9 +73,9 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
             );
           }).toList(),
           cancelButton: CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(skipChoice['value']),
+            onPressed: () => Navigator.of(context).pop(_skipChoice['value']),
             isDestructiveAction: true,
-            child: Text(skipChoice['title']!),
+            child: Text(_skipChoice['title']!),
           ),
         );
       },
@@ -90,16 +94,20 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
       height: widget.height,
       child: Stack(
         children: [
-          PageView.builder(
-            itemCount: user.photos.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return ImageContainer(
-                imageUrl: user.photos[index],
-              );
-            },
+          Container(
+            color: widget.paletteColor,
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: user.photos.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return ImageContainer(
+                  imageUrl: user.photos[index],
+                );
+              },
+            ),
           ),
-          if (isAMatch)
+          if (_isAMatch)
             SizedBox(
               child: Stack(children: [
                 Center(
@@ -138,14 +146,18 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
           ),
           Align(
             alignment: Alignment.topCenter,
-            child: _topAppBar(context),
+            child: Column(
+              children: [
+                _topAppBar(context, user),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  Container _topAppBar(BuildContext context) {
+  Container _topAppBar(BuildContext context, User user) {
     return Container(
       padding: const EdgeInsets.only(
         top: pagePaddingSize * 1.5,
@@ -154,7 +166,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
             onPressed: () => Navigator.pop(context),
@@ -168,6 +180,23 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                   color: Colors.black,
                 ),
               ],
+            ),
+          ),
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(pagePaddingSize),
+              ),
+            ),
+            child: SmoothPageIndicator(
+              controller: _pageController,
+              count: user.photos.length,
+              effect: ExpandingDotsEffect(
+                activeDotColor: appDarkGrey,
+                dotColor: appLightGrey,
+                dotHeight: 4.0,
+                dotWidth: 6.0,
+              ),
             ),
           ),
           Row(
