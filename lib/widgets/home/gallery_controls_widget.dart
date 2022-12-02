@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 
@@ -26,13 +27,13 @@ class GalleryControls extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           TextButton(
-            onPressed: () => shuffleUsers(),
+            onPressed: () {},
             child: Row(
               children: [
-                const Icon(LineIcons.random),
+                const Icon(LineIcons.times),
                 const SizedBox(width: minSizedBox),
                 Text(
-                  'Shuffle',
+                  'Skip',
                   style: Theme.of(context).textTheme.button,
                 ),
               ],
@@ -40,15 +41,15 @@ class GalleryControls extends StatelessWidget {
           ),
           const SizedBox(),
           TextButton(
-            onPressed: () {},
+            onPressed: () => shuffleUsers(),
             child: Row(
               children: [
                 Text(
-                  'Skip',
+                  'Shuffle',
                   style: Theme.of(context).textTheme.button,
                 ),
                 const SizedBox(width: minSizedBox),
-                const Icon(LineIcons.arrowRight),
+                const Icon(LineIcons.random),
               ],
             ),
           ),
