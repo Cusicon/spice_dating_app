@@ -7,6 +7,7 @@ const double minPaddingSize = 8.0;
 const double maxSizedBox = 16.0;
 const double minSizedBox = 8.0;
 const double borderWidth = 2.0;
+const double borderRadius = 16.0;
 
 const String appTitle = 'Spice';
 const String appSubTitle = '...Kings to Queens only';

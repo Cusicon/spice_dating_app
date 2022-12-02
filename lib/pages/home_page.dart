@@ -42,14 +42,21 @@ class _HomePageState extends State<HomePage>
   void _showProfileModal(User user) {
     showModalBottomSheet(
       isScrollControlled: true,
-      clipBehavior: Clip.antiAlias,
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) {
         return DraggableScrollableSheet(
           initialChildSize: 1,
-          builder: (_, controller) {
-            return ProfilePage(user: user);
+          maxChildSize: 1,
+          minChildSize: 0.85,
+          builder: (_, scrollController) {
+            return ClipRRect(
+                borderRadius: const BorderRadius.horizontal(
+                  left: Radius.circular(borderRadius),
+                  right: Radius.circular(borderRadius),
+                ),
+                child: ProfilePage(
+                    scrollController: scrollController, user: user));
           },
         );
       },

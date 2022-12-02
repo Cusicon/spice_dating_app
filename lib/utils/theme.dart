@@ -30,6 +30,7 @@ ThemeData appTheme() {
     brightness: Brightness.light,
     fontFamily: GoogleFonts.questrial().fontFamily,
     primarySwatch: createMaterialColor(const Color(appSecondaryColor)),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
@@ -50,6 +51,7 @@ ThemeData appDarkTheme() {
     fontFamily: GoogleFonts.questrial().fontFamily,
     scaffoldBackgroundColor: Colors.black,
     primarySwatch: createMaterialColor(Colors.white),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     primaryColor: Colors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
