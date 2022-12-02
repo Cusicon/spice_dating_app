@@ -1,14 +1,8 @@
-import 'marital_status_enum.dart';
+import 'package:spice_dating_app/enums/gender_enum.dart';
+
+import '../enums/marital_status_enum.dart';
 
 class User {
-  final String name;
-  final int age;
-  final String city;
-  final String bio;
-  final double height;
-  final MaritalStatus maritalStatus;
-  final List<String> photos;
-
   User({
     required this.name,
     required this.age,
@@ -16,14 +10,25 @@ class User {
     required this.bio,
     required this.height,
     required this.maritalStatus,
+    required this.gender,
     required this.photos,
   });
+
+  final int age;
+  final String bio;
+  final String city;
+  final Gender gender;
+  final double height;
+  final MaritalStatus maritalStatus;
+  final String name;
+  final List<String> photos;
 
   static List<User> users = [
     User(
       age: 27,
       bio: 'I love my life',
       city: 'Dominican Republic',
+      gender: Gender.female,
       height: 170,
       maritalStatus: MaritalStatus.single,
       name: 'Cescon Gian',
@@ -38,6 +43,7 @@ class User {
       age: 25,
       bio: 'I love my job',
       city: 'Caracas, Venezuela',
+      gender: Gender.female,
       height: 175,
       maritalStatus: MaritalStatus.divorced,
       name: 'Salas Gabriel',
@@ -52,6 +58,7 @@ class User {
       age: 27,
       bio: 'I love my husband',
       city: 'Chisinau, Moldova',
+      gender: Gender.female,
       height: 171,
       maritalStatus: MaritalStatus.married,
       name: 'Zdrobău Alexandru',
@@ -66,6 +73,7 @@ class User {
       age: 23,
       bio: "I'm waiting for you, baby",
       city: 'Houston, United States',
+      gender: Gender.female,
       height: 162,
       maritalStatus: MaritalStatus.hookup,
       name: 'Ogunseinde Ayo',
@@ -80,6 +88,7 @@ class User {
       age: 23,
       bio: 'Look at my hair, looks cure, right?',
       city: 'Houston, United States',
+      gender: Gender.female,
       height: 160,
       maritalStatus: MaritalStatus.single,
       name: 'Sinclair Dough',
@@ -94,6 +103,7 @@ class User {
       age: 24,
       bio: "I'm a very happy person",
       city: 'Kolding, Denmark',
+      gender: Gender.female,
       height: 178,
       maritalStatus: MaritalStatus.dating,
       name: 'Dam Michael',
@@ -108,6 +118,7 @@ class User {
       age: 24,
       bio: "I'm an ambitious enterprenuer",
       city: 'California, United States',
+      gender: Gender.female,
       height: 176,
       maritalStatus: MaritalStatus.single,
       name: 'Zvyagintsev Andrey',
@@ -122,6 +133,7 @@ class User {
       age: 23,
       bio: "I'd love to have a new friend",
       city: 'Melbourne Beach, United States',
+      gender: Gender.female,
       height: 168,
       maritalStatus: MaritalStatus.hookup,
       name: 'Tasher Aral',
@@ -136,6 +148,7 @@ class User {
       age: 24,
       bio: "Hey you!",
       city: 'Bangkok, Thailand',
+      gender: Gender.female,
       height: 176,
       maritalStatus: MaritalStatus.hookup,
       name: 'Harris-Rawson Joshua',
@@ -150,6 +163,7 @@ class User {
       age: 21,
       bio: "Don't I look beautiful",
       city: 'Michigan, United States',
+      gender: Gender.female,
       height: 170,
       maritalStatus: MaritalStatus.single,
       name: 'Andrey Jackson',
