@@ -15,7 +15,7 @@ class GalleryControls extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: minSizedBox),
+      padding: const EdgeInsets.symmetric(vertical: minSizedBox / 2),
       decoration: BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide(
@@ -28,8 +28,8 @@ class GalleryControls extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {},
-            style: const ButtonStyle(
-              foregroundColor: MaterialStatePropertyAll(Colors.grey),
+            style: ButtonStyle(
+              foregroundColor: MaterialStatePropertyAll(appNormalGrey),
             ),
             child: Row(
               children: const [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spice_dating_app/utils/colors.dart';
 
 import '../../models/user_model.dart';
 import '../../utils/constants.dart';
@@ -21,7 +22,7 @@ class QuestionWidget extends StatelessWidget {
           text: TextSpan(
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.normal,
-                  color: Colors.grey,
+                  color: appNormalGrey,
                 ),
             children: [
               const TextSpan(text: 'Would you date \n'),

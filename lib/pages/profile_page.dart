@@ -53,11 +53,6 @@ class _ProfilePageState extends State<ProfilePage> {
             user: widget.user,
             paletteColor: paletteColor.color,
           ),
-          ProfileHeadPhotos(
-            height: headHeight,
-            user: widget.user,
-            paletteColor: paletteColor.color,
-          ),
         ],
       ),
     );

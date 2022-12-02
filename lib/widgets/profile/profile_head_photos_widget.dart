@@ -32,7 +32,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
       'value': 'send-gift',
     },
     {
-      'icon': LineIcons.heartAlt,
+      'icon': LineIcons.heart,
       'title': 'Sweet! Save this...',
       'value': 'add-to-favourite',
     }
@@ -84,13 +84,20 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
 
   @override
   Widget build(BuildContext context) {
+    final User user = widget.user;
+
     return SizedBox(
       height: widget.height,
       child: Stack(
-        fit: StackFit.expand,
         children: [
-          ImageContainer(
-            imageUrl: widget.user.photos.first,
+          PageView.builder(
+            itemCount: user.photos.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return ImageContainer(
+                imageUrl: user.photos[index],
+              );
+            },
           ),
           if (isAMatch)
             SizedBox(
@@ -100,35 +107,39 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                 ),
               ]),
             ),
-          ShaderMask(
-            shaderCallback: (rect) {
-              return LinearGradient(
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ShaderMask(
+              shaderCallback: (rect) => LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.white,
-                  Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.5),
                 ],
                 stops: const [0.6, 1],
-              ).createShader(rect);
-            },
-            blendMode: BlendMode.dstOut,
-            child: Container(
-              height: widget.height,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    widget.paletteColor.withOpacity(0.5),
-                    widget.paletteColor,
-                  ],
+              ).createShader(rect),
+              blendMode: BlendMode.dstOut,
+              child: Container(
+                height: widget.height * 0.15,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      widget.paletteColor.withOpacity(0.5),
+                      widget.paletteColor,
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          _topAppBar(context),
+          Align(
+            alignment: Alignment.topCenter,
+            child: _topAppBar(context),
+          ),
         ],
       ),
     );

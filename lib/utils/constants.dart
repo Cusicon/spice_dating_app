@@ -35,16 +35,20 @@ Future<void> getAppVersion() async {
   buildNumber = packageInfo.buildNumber;
 }
 
-void showProfileModal(BuildContext context, User user) {
+void showProfileModal(BuildContext context, User user) async {
+  PaletteColor paletteColor = await generatePalette(user.photos.first);
+
   showModalBottomSheet(
     isScrollControlled: true,
+    isDismissible: false,
+    useRootNavigator: true,
+    barrierColor: paletteColor.color,
     context: context,
     backgroundColor: Colors.transparent,
     builder: (context) {
       return DraggableScrollableSheet(
         initialChildSize: 1,
-        maxChildSize: 1,
-        minChildSize: 0.85,
+        snap: true,
         builder: (_, scrollController) => ClipRRect(
           borderRadius: const BorderRadius.horizontal(
             left: Radius.circular(borderRadius),
