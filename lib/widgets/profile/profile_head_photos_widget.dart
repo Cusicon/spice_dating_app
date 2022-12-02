@@ -11,10 +11,12 @@ class ProfileHeadPhotos extends StatefulWidget {
     Key? key,
     required this.height,
     required this.user,
+    required this.paletteColor,
   }) : super(key: key);
 
   final double height;
   final User user;
+  final Color paletteColor;
 
   @override
   State<ProfileHeadPhotos> createState() => _ProfileHeadPhotosState();
@@ -86,14 +88,12 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
       height: widget.height,
       child: Stack(
         fit: StackFit.expand,
-        alignment: Alignment.topCenter,
         children: [
           ImageContainer(
             imageUrl: widget.user.photos.first,
           ),
           if (isAMatch)
             SizedBox(
-              // height: height,
               child: Stack(children: [
                 Center(
                   child: Lottie.asset(loveFloating),
@@ -107,7 +107,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.white,
-                  Colors.white.withOpacity(0.8),
+                  Colors.white.withOpacity(0.4),
                 ],
                 stops: const [0.6, 1],
               ).createShader(rect);
@@ -121,58 +121,62 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.black.withOpacity(0.5),
-                    Colors.black,
+                    widget.paletteColor.withOpacity(0.5),
+                    widget.paletteColor,
                   ],
                 ),
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(
-              top: pagePaddingSize * 1.5,
-              left: minPaddingSize,
-              right: minPaddingSize,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: const Icon(
-                    LineIcons.angleDown,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 8.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () => _showOptionsModal(context),
-                      icon: const Icon(
-                        LineIcons.horizontalEllipsis,
-                        color: Colors.white,
-                        shadows: [
-                          Shadow(
-                            offset: Offset(0.0, 0.0),
-                            blurRadius: 8.0,
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+          _topAppBar(context),
+        ],
+      ),
+    );
+  }
+
+  Container _topAppBar(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(
+        top: pagePaddingSize * 1.5,
+        left: minPaddingSize,
+        right: minPaddingSize,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(
+              LineIcons.angleDown,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 8.0,
+                  color: Colors.black,
                 ),
               ],
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => _showOptionsModal(context),
+                icon: const Icon(
+                  LineIcons.horizontalEllipsis,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 8.0,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -1,6 +1,5 @@
-// import 'package:flutter/material.dart';
-// import 'package:palette_generator/palette_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../models/user_model.dart';
@@ -70,16 +69,14 @@ void showProfileModal(BuildContext context, User user) {
 //   appLogo = 'assets/icons/dark/text-logo-dark.png';
 // }
 
+Future<PaletteColor> generatePalette(
+  String imagePath,
+) async {
+  PaletteGenerator paletteGenerator = await PaletteGenerator.fromImageProvider(
+    NetworkImage(imagePath),
+    size: const Size(100, 150),
+    maximumColorCount: 20,
+  );
 
-
-// Future<PaletteColor> generatePalette(
-//   String imagePath,
-// ) async {
-//   PaletteGenerator paletteGenerator = await PaletteGenerator.fromImageProvider(
-//     NetworkImage(imagePath),
-//     size: const Size(100, 150),
-//     maximumColorCount: 20,
-//   );
-
-//   return paletteGenerator.dominantColor!;
-// }
+  return paletteGenerator.dominantColor!;
+}
