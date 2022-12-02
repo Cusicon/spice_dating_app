@@ -31,6 +31,15 @@ Future<void> getAppVersion() async {
   buildNumber = packageInfo.buildNumber;
 }
 
+// void darkModeInitializer() {
+//   var brightness =
+//       SchedulerBinding.instance.platformDispatcher.platformBrightness;
+//   brightness == Brightness.dark;
+//   appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
+//   appIcon = 'assets/icons/dark/icon-dark.png';
+//   appLogo = 'assets/icons/dark/text-logo-dark.png';
+// }
+
 
 
 // Future<PaletteColor> generatePalette(

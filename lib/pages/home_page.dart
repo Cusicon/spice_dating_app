@@ -25,33 +25,33 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
+    _shuffleUsers();
+
     selectedUser = users.length;
     chosenUser = users.length;
     chosenController = AnimationController(vsync: this);
     chosenController.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        _showModal();
+        _showProfileModal(users[chosenUser]);
         chosenController.reset();
       }
     });
     super.initState();
   }
 
-  void _showModal() {
+  void _showProfileModal(User user) {
     showModalBottomSheet(
-      isDismissible: false,
       isScrollControlled: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) {
-        return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.95,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16.0),
-            child: const ProfilePage(),
-          ),
+        return DraggableScrollableSheet(
+          initialChildSize: 1,
+          builder: (_, controller) {
+            return ProfilePage(user: user);
+          },
         );
-        // return const ProfilePage();
       },
     );
   }
@@ -71,6 +71,8 @@ class _HomePageState extends State<HomePage>
         chosenUser = users.length;
       }
     });
+
+    chosenController.reset();
   }
 
   void _chooseUser(context, index) async {
@@ -78,6 +80,8 @@ class _HomePageState extends State<HomePage>
       selectedUser = index;
       chosenUser = index;
     });
+
+    chosenController.reset();
   }
 
   @override
@@ -149,7 +153,7 @@ class HomeAppBar extends StatelessWidget {
             percent: 20.0,
             color: RingColorScheme(
                 ringColor: const Color(appPrimaryColor),
-                backgroundColor: appLoadingBackgroundColor),
+                backgroundColor: appLightGrey),
             radius: 25.0,
             width: borderWidth,
             child: const Center(

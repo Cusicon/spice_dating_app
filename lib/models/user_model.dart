@@ -1,5 +1,4 @@
-import 'package:spice_dating_app/enums/gender_enum.dart';
-
+import '../enums/gender_enum.dart';
 import '../enums/marital_status_enum.dart';
 
 class User {

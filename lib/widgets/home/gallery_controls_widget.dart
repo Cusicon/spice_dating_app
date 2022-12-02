@@ -19,7 +19,7 @@ class GalleryControls extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide(
-            color: appLoadingBackgroundColor,
+            color: appLightGrey,
           ),
         ),
       ),
@@ -28,28 +28,29 @@ class GalleryControls extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {},
+            style: const ButtonStyle(
+              foregroundColor: MaterialStatePropertyAll(Colors.grey),
+            ),
             child: Row(
-              children: [
-                const Icon(LineIcons.times),
-                const SizedBox(width: minSizedBox),
-                Text(
-                  'Skip',
-                  style: Theme.of(context).textTheme.button,
-                ),
+              children: const [
+                Icon(LineIcons.times),
+                SizedBox(width: minSizedBox),
+                Text('Skip'),
               ],
             ),
           ),
           const SizedBox(),
           TextButton(
             onPressed: () => shuffleUsers(),
+            style: const ButtonStyle(
+              foregroundColor:
+                  MaterialStatePropertyAll(Color(appSecondaryColor)),
+            ),
             child: Row(
-              children: [
-                Text(
-                  'Shuffle',
-                  style: Theme.of(context).textTheme.button,
-                ),
-                const SizedBox(width: minSizedBox),
-                const Icon(LineIcons.random),
+              children: const [
+                Text('Shuffle'),
+                SizedBox(width: minSizedBox),
+                Icon(LineIcons.random),
               ],
             ),
           ),

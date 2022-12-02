@@ -45,7 +45,7 @@ class _LoadingBarState extends State<LoadingBar> with TickerProviderStateMixin {
         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         child: LinearProgressIndicator(
           value: controller.value,
-          backgroundColor: appLoadingBackgroundColor,
+          backgroundColor: appLightGrey,
           semanticsLabel: 'Linear progress indicator',
           color: const Color(appPrimaryColor),
         ),

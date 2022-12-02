@@ -41,12 +41,12 @@ class ShimmerContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: appLoadingBackgroundColor,
+      baseColor: appLightGrey,
       highlightColor: Colors.grey,
       child: Container(
         height: height,
         decoration: BoxDecoration(
-          color: appLoadingBackgroundColor,
+          color: appLightGrey,
         ),
       ),
     );
@@ -66,7 +66,7 @@ class ShimmerContainerError extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: appLoadingBackgroundColor,
+        color: appLightGrey,
       ),
       child: SizedBox(
         height: height,

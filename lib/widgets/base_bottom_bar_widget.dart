@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
+import '../utils/colors.dart';
 import '../utils/constants.dart';
 
 class BaseBottomBar extends StatelessWidget {
@@ -27,7 +28,7 @@ class BaseBottomBar extends StatelessWidget {
           gap: minPaddingSize,
           iconActiveColor: Theme.of(context).primaryColor,
           textColor: Theme.of(context).primaryColor,
-          iconColor: Colors.grey.withOpacity(0.8),
+          iconColor: appDarkGrey,
           iconSize: 28.0,
         );
       }).toList(),
