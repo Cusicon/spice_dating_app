@@ -32,35 +32,11 @@ class _HomePageState extends State<HomePage>
     chosenController = AnimationController(vsync: this);
     chosenController.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        _showProfileModal(users[chosenUser]);
+        showProfileModal(context, users[chosenUser]);
         chosenController.reset();
       }
     });
     super.initState();
-  }
-
-  void _showProfileModal(User user) {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) {
-        return DraggableScrollableSheet(
-          initialChildSize: 1,
-          maxChildSize: 1,
-          minChildSize: 0.85,
-          builder: (_, scrollController) {
-            return ClipRRect(
-                borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(borderRadius),
-                  right: Radius.circular(borderRadius),
-                ),
-                child: ProfilePage(
-                    scrollController: scrollController, user: user));
-          },
-        );
-      },
-    );
   }
 
   void _shuffleUsers() {
