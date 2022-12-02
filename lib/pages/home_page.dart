@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage>
   void _showProfileModal(User user) {
     showModalBottomSheet(
       isScrollControlled: true,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
+      clipBehavior: Clip.antiAlias,
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) {
