@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:palette_generator/palette_generator.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 import '../models/user_model.dart';
 import '../pages/profile_page.dart';
@@ -21,6 +21,10 @@ const String loveIcon = 'assets/lottieicons/love-icon.json';
 const String loveHearts = 'assets/lottieicons/love-hearts.json';
 const String loveWithParticle = 'assets/lottieicons/love-with-particle.json';
 const String loveFloating = 'assets/lottieicons/love-floating.json';
+
+// void goFullscreen() {
+//   // SystemChrome.setEnabledSystemUIMode(overlays: []);
+// }
 
 String appName = '';
 String packageName = '';
@@ -48,16 +52,11 @@ void showProfileModal(BuildContext context, User user) async {
     builder: (context) {
       return DraggableScrollableSheet(
         initialChildSize: 1,
+        minChildSize: 0.6,
         snap: true,
-        builder: (_, scrollController) => ClipRRect(
-          borderRadius: const BorderRadius.horizontal(
-            left: Radius.circular(borderRadius),
-            right: Radius.circular(borderRadius),
-          ),
-          child: ProfilePage(
-            scrollController: scrollController,
-            user: user,
-          ),
+        builder: (_, scrollController) => ProfilePage(
+          scrollController: scrollController,
+          user: user,
         ),
       );
     },

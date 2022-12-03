@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
-import 'package:spice_dating_app/utils/constants.dart';
+import '../utils/constants.dart';
 
 import '../models/user_model.dart';
 import '../widgets/widgets.dart';

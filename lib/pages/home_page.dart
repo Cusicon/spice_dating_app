@@ -5,7 +5,6 @@ import '../models/user_model.dart';
 import '../utils/colors.dart';
 import '../utils/constants.dart';
 import '../widgets/widgets.dart';
-import 'profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

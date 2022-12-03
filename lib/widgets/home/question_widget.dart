@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spice_dating_app/utils/colors.dart';
+import '../../utils/colors.dart';
 
 import '../../models/user_model.dart';
 import '../../utils/constants.dart';
