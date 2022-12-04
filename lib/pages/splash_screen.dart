@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import '../utils/colors.dart';
 
+import '../utils/colors.dart';
 import '../utils/constants.dart';
 import '../widgets/widgets.dart';
 import 'home_page.dart';
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Column(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         height: 125,
                         child: Image(
                           image: AssetImage(appLaunchScreenLogo),

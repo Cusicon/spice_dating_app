@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../custom_icon_button_widget.dart';
 
 import '../../models/user_model.dart';
 import '../../utils/colors.dart';

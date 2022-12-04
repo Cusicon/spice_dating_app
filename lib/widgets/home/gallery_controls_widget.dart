@@ -28,7 +28,7 @@ class GalleryControls extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {},
-            style: ButtonStyle(
+            style: const ButtonStyle(
               foregroundColor: MaterialStatePropertyAll(appNormalGrey),
             ),
             child: Row(

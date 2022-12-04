@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -14,13 +15,14 @@ const double containerBorderRadius = 16.0;
 
 const String appTitle = 'Spice';
 const String appSubTitle = '...Kings to Queens only';
-const String appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
-const String appIcon = 'assets/icons/icon.png';
-const String appLogo = 'assets/icons/text-logo.png';
 const String loveIcon = 'assets/lottieicons/love-icon.json';
 const String loveHearts = 'assets/lottieicons/love-hearts.json';
 const String loveWithParticle = 'assets/lottieicons/love-with-particle.json';
 const String loveFloating = 'assets/lottieicons/love-floating.json';
+
+String appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
+String appIcon = 'assets/icons/icon.png';
+String appLogo = 'assets/icons/text-logo.png';
 
 // void goFullscreen() {
 //   // SystemChrome.setEnabledSystemUIMode(overlays: []);
@@ -63,14 +65,18 @@ void showProfileModal(BuildContext context, User user) async {
   );
 }
 
-// void darkModeInitializer() {
-//   var brightness =
-//       SchedulerBinding.instance.platformDispatcher.platformBrightness;
-//   brightness == Brightness.dark;
-//   appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
-//   appIcon = 'assets/icons/dark/icon-dark.png';
-//   appLogo = 'assets/icons/dark/text-logo-dark.png';
-// }
+void darkModeInitializer(BuildContext context) {
+  // var brightness =
+  //     SchedulerBinding.instance.platformDispatcher.platformBrightness;
+
+  final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+  if (isDarkMode) {
+    appLaunchScreenLogo = 'assets/icons/launchscreen-logo.png';
+    appIcon = 'assets/icons/dark/icon-dark.png';
+    appLogo = 'assets/icons/dark/text-logo-dark.png';
+  }
+}
 
 Future<PaletteColor> generatePalette(
   String imagePath,

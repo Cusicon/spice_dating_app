@@ -15,9 +15,6 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
-
     return AppBar(
       leading: Container(),
       backgroundColor: Colors.transparent,

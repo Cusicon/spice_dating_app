@@ -8,7 +8,6 @@ import 'utils/theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // darkModeInitializer();
   await getAppVersion();
   runApp(const MyApp());
 }
@@ -18,6 +17,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    darkModeInitializer(context);
+
     return MaterialApp(
       title: appTitle,
       debugShowCheckedModeBanner: false,

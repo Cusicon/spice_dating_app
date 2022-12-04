@@ -122,7 +122,7 @@ class HomeAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(
+        SizedBox(
           height: 40.0,
           child: Image(
             image: AssetImage(appLogo),

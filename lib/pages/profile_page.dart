@@ -42,8 +42,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     final double headHeight = MediaQuery.of(context).size.height * 0.7;
 
-    Color _color = paletteColor.color;
-
     _getPaletteColors(widget.user.photos.first);
 
     return Scaffold(
@@ -53,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ProfileHeadPhotos(
             height: headHeight,
             user: widget.user,
-            paletteColor: _color,
+            paletteColor: paletteColor.color,
           ),
           const ProfileMainActions(),
         ],

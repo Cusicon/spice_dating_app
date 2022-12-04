@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../widgets.dart';
+
 import '../../models/user_model.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
+import '../widgets.dart';
 
 class GalleryWidget extends StatelessWidget {
   const GalleryWidget({
