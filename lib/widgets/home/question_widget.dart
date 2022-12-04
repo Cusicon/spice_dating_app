@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../utils/colors.dart';
 
 import '../../models/user_model.dart';
+import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 
 class QuestionWidget extends StatelessWidget {
