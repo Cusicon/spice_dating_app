@@ -5,8 +5,8 @@ class CustomIconButton extends StatelessWidget {
     Key? key,
     required this.color,
     required this.child,
-    required this.borderedRadius,
     required this.onPressed,
+    this.borderRadius,
     this.border,
     this.height,
     this.width,
@@ -17,7 +17,7 @@ class CustomIconButton extends StatelessWidget {
   final double? width;
   final Color color;
   final Widget child;
-  final BorderRadiusGeometry borderedRadius;
+  final BorderRadiusGeometry? borderRadius;
   final BoxBorder? border;
   final Function onPressed;
   final double relativeIconSizeToParentHeight;
@@ -31,19 +31,16 @@ class CustomIconButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: borderedRadius,
+        borderRadius: borderRadius,
         border: border,
       ),
       child: LayoutBuilder(
-        builder: (ctx, constraints) => Transform.scale(
-          scaleX: -1,
-          child: IconButton(
-            iconSize: relativeIconSizeToParentHeight != 0.0
-                ? constraints.maxHeight * relativeIconSizeToParentHeight
-                : null,
-            onPressed: () => onPressed(),
-            icon: child,
-          ),
+        builder: (ctx, constraints) => IconButton(
+          iconSize: relativeIconSizeToParentHeight != 0.0
+              ? constraints.maxHeight * relativeIconSizeToParentHeight
+              : null,
+          onPressed: () => onPressed(),
+          icon: child,
         ),
       ),
     );

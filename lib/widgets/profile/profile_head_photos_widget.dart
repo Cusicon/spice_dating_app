@@ -167,7 +167,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
           children: [
             CustomIconButton(
               color: widget.paletteColor.withOpacity(0.3),
-              borderedRadius: const BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(30),
               ),
               onPressed: () => Navigator.pop(context),
@@ -205,7 +205,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
               children: [
                 CustomIconButton(
                   color: widget.paletteColor.withOpacity(0.3),
-                  borderedRadius: const BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(30),
                   ),
                   onPressed: () => _showOptionsModal(context),
