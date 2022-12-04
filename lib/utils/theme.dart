@@ -29,6 +29,7 @@ ThemeData appTheme() {
   return ThemeData(
     brightness: Brightness.light,
     fontFamily: GoogleFonts.questrial().fontFamily,
+    scaffoldBackgroundColor: Colors.white,
     primarySwatch: createMaterialColor(const Color(appSecondaryColor)),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: const AppBarTheme(

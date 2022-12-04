@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:spice_dating_app/utils/colors.dart';
 
 import '../utils/constants.dart';
 import '../widgets/widgets.dart';
@@ -57,7 +58,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ],
                   ),
-                  const LoadingBar(),
+                  LoadingBar(
+                    left: pagePaddingSize,
+                    top: minSizedBox,
+                    right: pagePaddingSize,
+                    bottom: minSizedBox,
+                    backgroundColor: appLightGrey,
+                  ),
                   Text(
                     'Ver $appVersion',
                     style: Theme.of(context).textTheme.caption,

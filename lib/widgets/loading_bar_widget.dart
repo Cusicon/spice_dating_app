@@ -4,7 +4,22 @@ import '../utils/colors.dart';
 import '../utils/constants.dart';
 
 class LoadingBar extends StatefulWidget {
-  const LoadingBar({super.key});
+  const LoadingBar({
+    Key? key,
+    this.left = pagePaddingSize,
+    this.top = minSizedBox,
+    this.right = pagePaddingSize,
+    this.bottom = minSizedBox,
+    this.backgroundColor = appNormalGrey,
+    this.color = const Color(appPrimaryColor),
+  }) : super(key: key);
+
+  final double left;
+  final double top;
+  final double right;
+  final double bottom;
+  final Color? backgroundColor;
+  final Color color;
 
   @override
   State<LoadingBar> createState() => _LoadingBarState();
@@ -35,19 +50,19 @@ class _LoadingBarState extends State<LoadingBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        pagePaddingSize,
-        minSizedBox,
-        pagePaddingSize,
-        minSizedBox,
+      padding: EdgeInsets.fromLTRB(
+        widget.left,
+        widget.top,
+        widget.right,
+        widget.bottom,
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         child: LinearProgressIndicator(
           value: controller.value,
-          backgroundColor: appLightGrey,
+          backgroundColor: widget.backgroundColor,
           semanticsLabel: 'Linear progress indicator',
-          color: const Color(appPrimaryColor),
+          color: widget.color,
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:spice_dating_app/widgets/custom_icon_button_widget.dart';
 
 import '../../models/user_model.dart';
 import '../../utils/colors.dart';
@@ -117,35 +118,6 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
               ]),
             ),
           Align(
-            alignment: Alignment.topCenter,
-            child: ShaderMask(
-              shaderCallback: (rect) => LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white.withOpacity(0.6),
-                  Colors.white,
-                ],
-                stops: const [0.6, 1],
-              ).createShader(rect),
-              blendMode: BlendMode.dstOut,
-              child: Container(
-                height: widget.height * 0.20,
-                width: double.maxFinite,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      widget.paletteColor,
-                      widget.paletteColor.withOpacity(0.6),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Align(
             alignment: Alignment.bottomCenter,
             child: ShaderMask(
               shaderCallback: (rect) => LinearGradient(
@@ -193,25 +165,22 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _iconButton(
-              context,
-              color: widget.paletteColor,
+            CustomIconButton(
+              color: widget.paletteColor.withOpacity(0.3),
               borderedRadius: const BorderRadius.all(
                 Radius.circular(30),
               ),
-              child: IconButton(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(
-                  LineIcons.angleDown,
-                  color: Colors.white,
-                  shadows: [
-                    Shadow(
-                      offset: Offset(0.0, 0.0),
-                      blurRadius: 8.0,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
+              onPressed: () => Navigator.pop(context),
+              child: const Icon(
+                LineIcons.angleDown,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 8.0,
+                    color: Colors.black,
+                  ),
+                ],
               ),
             ),
             Container(
@@ -234,25 +203,22 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _iconButton(
-                  context,
-                  color: widget.paletteColor,
+                CustomIconButton(
+                  color: widget.paletteColor.withOpacity(0.3),
                   borderedRadius: const BorderRadius.all(
                     Radius.circular(30),
                   ),
-                  child: IconButton(
-                    onPressed: () => _showOptionsModal(context),
-                    icon: const Icon(
-                      LineIcons.horizontalEllipsis,
-                      color: Colors.white,
-                      shadows: [
-                        Shadow(
-                          offset: Offset(0.0, 0.0),
-                          blurRadius: 8.0,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                  onPressed: () => _showOptionsModal(context),
+                  child: const Icon(
+                    LineIcons.horizontalEllipsis,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 8.0,
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -260,21 +226,6 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
           ],
         ),
       ),
-    );
-  }
-
-  Container _iconButton(
-    BuildContext context, {
-    required Color color,
-    required IconButton child,
-    required BorderRadiusGeometry borderedRadius,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.3),
-        borderRadius: borderedRadius,
-      ),
-      child: child,
     );
   }
 }
