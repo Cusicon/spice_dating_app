@@ -30,18 +30,24 @@ ThemeData appTheme() {
     brightness: Brightness.light,
     fontFamily: GoogleFonts.questrial().fontFamily,
     scaffoldBackgroundColor: Colors.white,
-    primarySwatch: createMaterialColor(const Color(appSecondaryColor)),
+    primarySwatch: createMaterialColor(appSecondaryColor),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      iconTheme: IconThemeData(color: Color(appSecondaryColor)),
+      iconTheme: IconThemeData(color: appSecondaryColor),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: appSecondaryColor,
+      ),
     ),
     textTheme: const TextTheme(
-      headlineSmall: TextStyle(fontWeight: FontWeight.bold),
-    ).apply(
-      bodyColor: const Color(appSecondaryColor),
-      displayColor: const Color(appSecondaryColor),
+      headlineSmall: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: appSecondaryColor,
+      ),
+      bodyMedium: TextStyle(height: 1.5),
     ),
   );
 }
@@ -57,7 +63,11 @@ ThemeData appDarkTheme() {
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      // iconTheme: IconThemeData(color: Color(appSecondaryColor)),
+      // iconTheme: IconThemeData(color: appSecondaryColor),
+    ),
+    textTheme: const TextTheme(
+      headlineSmall: TextStyle(fontWeight: FontWeight.bold),
+      bodyMedium: TextStyle(height: 1.5),
     ),
   );
 }

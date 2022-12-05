@@ -28,8 +28,8 @@ class GalleryControls extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {},
-            style: const ButtonStyle(
-              foregroundColor: MaterialStatePropertyAll(appNormalGrey),
+            style: TextButton.styleFrom(
+              foregroundColor: appNormalGrey,
             ),
             child: Row(
               children: const [
@@ -42,9 +42,8 @@ class GalleryControls extends StatelessWidget {
           const SizedBox(),
           TextButton(
             onPressed: () => shuffleUsers(),
-            style: ButtonStyle(
-              foregroundColor:
-                  MaterialStatePropertyAll(Theme.of(context).primaryColor),
+            style: TextButton.styleFrom(
+              foregroundColor: Theme.of(context).primaryColor,
             ),
             child: Row(
               children: const [

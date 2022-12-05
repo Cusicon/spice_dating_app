@@ -124,9 +124,9 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.white,
-                  Colors.white.withOpacity(0.6),
+                  Colors.white.withOpacity(0.1),
                 ],
-                stops: const [0.6, 1],
+                stops: const [0.1, 1],
               ).createShader(rect),
               blendMode: BlendMode.dstOut,
               child: Container(
@@ -137,7 +137,7 @@ class _ProfileHeadPhotosState extends State<ProfileHeadPhotos> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      widget.paletteColor.withOpacity(0.6),
+                      widget.paletteColor.withOpacity(0.1),
                       widget.paletteColor,
                     ],
                   ),

@@ -19,30 +19,33 @@ class ProfileMainActions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          SizedBox(
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    FontAwesomeIcons.pause,
-                    color: Theme.of(context).primaryColor,
-                    size: 16.0,
+          Opacity(
+            opacity: 0.333,
+            child: SizedBox(
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      FontAwesomeIcons.pause,
+                      color: Theme.of(context).primaryColor,
+                      size: 16.0,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 2.5,
-                  width: 50,
-                  child: LoadingBar(
-                    left: 0.0,
-                    top: 0.0,
-                    right: 0.0,
-                    bottom: 0.0,
-                    backgroundColor: appLightGrey,
-                    color: Theme.of(context).primaryColor,
+                  SizedBox(
+                    height: 2.5,
+                    width: 50,
+                    child: LoadingBar(
+                      left: 0.0,
+                      top: 0.0,
+                      right: 0.0,
+                      bottom: 0.0,
+                      backgroundColor: appLightGrey,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -54,7 +57,7 @@ class ProfileMainActions extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CustomIconButton(
-                  color: appNormalGrey,
+                  color: appSecondaryColor,
                   height: 64.0,
                   width: 64.0,
                   relativeIconSizeToParentHeight: 0.5,
@@ -90,15 +93,15 @@ class ProfileMainActions extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(appPrimaryColor).withOpacity(0.5),
-                          // spreadRadius: 4.0,
+                          color: appPrimaryColor.withOpacity(0.4),
+                          spreadRadius: 4.0,
                           offset: const Offset(0, 8),
                           blurRadius: 16,
                         ),
                       ],
                     ),
                     child: CustomIconButton(
-                      color: const Color(appPrimaryColor),
+                      color: appPrimaryColor,
                       height: 88.0,
                       width: 88.0,
                       relativeIconSizeToParentHeight: 0.5,

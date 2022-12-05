@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../models/user_model.dart';
-import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 
 class QuestionWidget extends StatelessWidget {
@@ -20,10 +19,10 @@ class QuestionWidget extends StatelessWidget {
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.normal,
-                  color: appNormalGrey,
-                ),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(fontWeight: FontWeight.normal),
             children: [
               const TextSpan(text: 'Would you date \n'),
               TextSpan(

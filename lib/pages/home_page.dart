@@ -134,8 +134,9 @@ class HomeAppBar extends StatelessWidget {
           child: Ring(
             percent: 20.0,
             color: RingColorScheme(
-                ringColor: const Color(appPrimaryColor),
-                backgroundColor: appLightGrey),
+              ringColor: appPrimaryColor,
+              backgroundColor: appLightGrey,
+            ),
             radius: 25.0,
             width: borderWidth,
             child: const Center(

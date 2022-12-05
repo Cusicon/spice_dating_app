@@ -11,7 +11,7 @@ class LoadingBar extends StatefulWidget {
     this.right = pagePaddingSize,
     this.bottom = minSizedBox,
     this.backgroundColor = appNormalGrey,
-    this.color = const Color(appPrimaryColor),
+    this.color = appPrimaryColor,
   }) : super(key: key);
 
   final double left;

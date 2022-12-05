@@ -45,7 +45,7 @@ class GalleryWidget extends StatelessWidget {
               border: Border.all(
                 width: borderWidth,
                 color: index == selectedUser
-                    ? const Color(appPrimaryColor)
+                    ? appPrimaryColor
                     : Colors.transparent,
               ),
             ),
