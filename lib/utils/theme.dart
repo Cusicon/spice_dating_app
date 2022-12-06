@@ -43,6 +43,10 @@ ThemeData appTheme() {
       ),
     ),
     textTheme: const TextTheme(
+      titleSmall: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: appSecondaryColor,
+      ),
       headlineSmall: TextStyle(
         fontWeight: FontWeight.bold,
         color: appSecondaryColor,
@@ -66,6 +70,7 @@ ThemeData appDarkTheme() {
       // iconTheme: IconThemeData(color: appSecondaryColor),
     ),
     textTheme: const TextTheme(
+      titleSmall: TextStyle(fontWeight: FontWeight.bold),
       headlineSmall: TextStyle(fontWeight: FontWeight.bold),
       bodyMedium: TextStyle(height: 1.5),
     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
@@ -9,7 +10,10 @@ import '../widgets.dart';
 class ProfileMainActions extends StatelessWidget {
   const ProfileMainActions({
     Key? key,
+    this.bgPaletteColor,
   }) : super(key: key);
+
+  final Color? bgPaletteColor;
 
   @override
   Widget build(BuildContext context) {
@@ -56,24 +60,41 @@ class ProfileMainActions extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CustomIconButton(
-                  color: appSecondaryColor,
-                  height: 64.0,
-                  width: 64.0,
-                  relativeIconSizeToParentHeight: 0.5,
-                  border: Border.all(
-                    width: borderWidth * 4,
-                    color: Theme.of(context).scaffoldBackgroundColor,
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: borderWidth * 4,
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(100),
+                    ),
                   ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(100),
-                  ),
-                  onPressed: () {},
-                  child: Transform.scale(
-                    scaleX: -1,
-                    child: const Icon(
-                      LineIcons.photoVideo,
-                      color: Colors.white,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: CustomIconButton(
+                      color: appSecondaryColor,
+                      height: 64.0,
+                      width: 64.0,
+                      relativeIconSizeToParentHeight: 0.5,
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(100),
+                      ),
+                      onPressed: () {},
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.white,
+                        highlightColor: Colors.grey.shade200,
+                        period: const Duration(seconds: 2),
+                        child: Transform.scale(
+                          scaleX: -1,
+                          child: const Icon(
+                            LineIcons.photoVideo,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -109,11 +130,16 @@ class ProfileMainActions extends StatelessWidget {
                         Radius.circular(100),
                       ),
                       onPressed: () {},
-                      child: Transform.scale(
-                        scaleX: -1,
-                        child: const Icon(
-                          FontAwesomeIcons.solidMessage,
-                          color: Colors.white,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.white,
+                        highlightColor: Colors.grey.shade200,
+                        period: const Duration(seconds: 2),
+                        child: Transform.scale(
+                          scaleX: -1,
+                          child: const Icon(
+                            FontAwesomeIcons.solidMessage,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
