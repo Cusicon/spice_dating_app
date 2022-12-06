@@ -36,6 +36,7 @@ class GalleryWidget extends StatelessWidget {
       ),
       itemBuilder: (ctx, index) {
         User user = users[index];
+
         return InkWell(
           onTap: () => selectUser(index),
           onDoubleTap: () => chooseUser(ctx, index),

@@ -1,4 +1,4 @@
-enum MaritalStatus {
+enum RelationshipStatus {
   hookup,
   dating,
   single,

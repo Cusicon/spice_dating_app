@@ -1,5 +1,5 @@
 import '../enums/gender_enum.dart';
-import '../enums/marital_status_enum.dart';
+import '../enums/relationship_status_enum.dart';
 
 class User {
   User({
@@ -18,7 +18,7 @@ class User {
   final String city;
   final Gender gender;
   final double height;
-  final MaritalStatus maritalStatus;
+  final RelationshipStatus maritalStatus;
   final String name;
   final List<String> photos;
 
@@ -29,7 +29,7 @@ class User {
       city: 'Dominican Republic',
       gender: Gender.female,
       height: 170,
-      maritalStatus: MaritalStatus.single,
+      maritalStatus: RelationshipStatus.single,
       name: 'Cescon Gian',
       photos: [
         'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
@@ -44,7 +44,7 @@ class User {
       city: 'Caracas, Venezuela',
       gender: Gender.female,
       height: 175,
-      maritalStatus: MaritalStatus.divorced,
+      maritalStatus: RelationshipStatus.divorced,
       name: 'Salas Gabriel',
       photos: [
         'https://images.unsplash.com/photo-1540174401473-df5f1c06c716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -59,7 +59,7 @@ class User {
       city: 'Chisinau, Moldova',
       gender: Gender.female,
       height: 171,
-      maritalStatus: MaritalStatus.married,
+      maritalStatus: RelationshipStatus.married,
       name: 'Zdrobău Alexandru',
       photos: [
         'https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80',
@@ -74,7 +74,7 @@ class User {
       city: 'Houston, United States',
       gender: Gender.female,
       height: 162,
-      maritalStatus: MaritalStatus.hookup,
+      maritalStatus: RelationshipStatus.hookup,
       name: 'Ogunseinde Ayo',
       photos: [
         'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -89,7 +89,7 @@ class User {
       city: 'Houston, United States',
       gender: Gender.female,
       height: 160,
-      maritalStatus: MaritalStatus.single,
+      maritalStatus: RelationshipStatus.single,
       name: 'Sinclair Dough',
       photos: [
         'https://images.unsplash.com/photo-1533435137002-455932c8538f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -104,7 +104,7 @@ class User {
       city: 'Kolding, Denmark',
       gender: Gender.female,
       height: 178,
-      maritalStatus: MaritalStatus.dating,
+      maritalStatus: RelationshipStatus.dating,
       name: 'Dam Michael',
       photos: [
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -119,7 +119,7 @@ class User {
       city: 'California, United States',
       gender: Gender.female,
       height: 176,
-      maritalStatus: MaritalStatus.single,
+      maritalStatus: RelationshipStatus.single,
       name: 'Zvyagintsev Andrey',
       photos: [
         'https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -134,7 +134,7 @@ class User {
       city: 'Melbourne Beach, United States',
       gender: Gender.female,
       height: 168,
-      maritalStatus: MaritalStatus.hookup,
+      maritalStatus: RelationshipStatus.hookup,
       name: 'Tasher Aral',
       photos: [
         'https://images.unsplash.com/photo-1491234909075-13ce70f047b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
@@ -149,7 +149,7 @@ class User {
       city: 'Bangkok, Thailand',
       gender: Gender.female,
       height: 176,
-      maritalStatus: MaritalStatus.hookup,
+      maritalStatus: RelationshipStatus.hookup,
       name: 'Harris-Rawson Joshua',
       photos: [
         'https://images.unsplash.com/photo-1512310604669-443f26c35f52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=868&q=80',
@@ -164,7 +164,7 @@ class User {
       city: 'Michigan, United States',
       gender: Gender.female,
       height: 170,
-      maritalStatus: MaritalStatus.single,
+      maritalStatus: RelationshipStatus.single,
       name: 'Andrey Jackson',
       photos: [
         'https://images.unsplash.com/photo-1523297736436-356615162cc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
